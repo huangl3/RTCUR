@@ -2,14 +2,13 @@
 
 This repository is for our paper:
 
-[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> -->Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>. *Transactions on Pattern Analysis and Machine Intelligence*, 22.185: 1-36, 2022. (TBD when paper is published)
+[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> --> Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>. *Transactions on Pattern Analysis and Machine Intelligence*, 22.185: 1-36, 2022. (TBD when paper is published)
 
 ###### To display math symbols properly, one may have to install a MathJax plugin. For example, [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 
 ## Introduction
-In this work, we generalize CUR decompositions to high-order tensors under the low-multilinear-rank setting.  
-We provide two verisons of this generalization, namely Chidori and Fiber CUR decompositions.  
+A fast non-convex optimization algorithm, called RTCUR, for tensor robust principal component analysis (TRPCA) problem. We provide four verisons of this generalization.
 
 
 ## Environment
