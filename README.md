@@ -1,59 +1,51 @@
-# ICURC for Cross-Concentrated Sampling Model 
-This is Matlab repo for an efficient non-convex matrix completion algorithm, termed Iterative CUR Completion (ICURC):
+# Mode-wise Tensor Decomposition
 
-[1] HanQin Cai, Longxiu Huang, Pengyu Li, and Deanna Needell. Matrix Completion with Cross-Concentrated Sampling: Bridging Uniform Sampling and CUR Sampling
+This repository is for our paper:
+
+[1] HanQin Cai, Keaton Hamm, Longxiu Huang, and Deanna Needell. <a href=https://jmlr.org/papers/v22/21-0287.html>Mode-wise Tensor Decompositions: Multi-dimensional Generalizations of CUR Decompositions</a>. *Journal of Machine Learning Research*, 22.185: 1-36, 2021.
 
 ###### To display math symbols properly, one may have to install a MathJax plugin. For example, [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 
 ## Introduction
-In this work, we propose a novel and easy-to-implement sampling strategy, coined Cross-Concentrated Sampling (CCS). Additionally, we propose a highly efficient non-convex algorithm, named Iterative CUR Completion (ICURC), for the proposed CCS model. More details can be found in our paper [1].  
+In this work, we generalize CUR decompositions to high-order tensors under the low-multilinear-rank setting.  
+We provide two verisons of this generalization, namely Chidori and Fiber CUR decompositions.  
+
+
+## Environment
+This repo is developed with <a href=https://gitlab.com/tensors/tensor_toolbox/-/releases/v3.1>Tensor Toolbox v3.1</a>. A future verison of this toolbox may also increase the peformance of our code; however, we cannot guarantee their compatibility.
 
 
 ## Syntex
-Using all default parameters:
-```
-[X_Omega_css, I_css, J_css] = CCS(X, '');
 
-[C,U_pinv,R, ICURC_time, ICURC_ite] = ICURC(X_Omega_css, I_css, J_css, r,'');
+#### Chidori CUR
 ```
-
-Using custom parameters:
-```
-params_ccs.delta = 0.2;
-params_ccs.p = 0.3;
-[X_Omega_css, I_css, J_css] = CCS(X, params_ccs);
-
-p = params_ccs.p;
-params_icurc.eta = [1/p, 1/p, 1/(2*p)];
-params_icurc.TOL = 1e-4;
-params_icurc.max_ite = 500;
-[C,U_pinv,R, ICURC_time] = ICURC(X_Omega_css, I_css, J_css, r,params_icurc);
+[Core,X_sub_mat] = Chidori_CUR(X, R, const);
 ```
 
-## Input Description for CCS
-1. X : low rank matrix.  
-2. params_ccs : parameters for the algorithm CCS
-   * .delta : rate of sampled columns or rows. (default 0.2)
-   * .p : observation rate on the selected submatrices. (default 0.2)
+#### Chidori CUR
+```
+[Core, X_sub_mat] = Fiber_CUR(X, R, const_R, const_C);
+```
 
+## Input Description
+1. X : Inputed tensor. 
+1. R : Targeted multilinear rank.
+1. const : Sampling constant in **Chidori CUR**. (Default value: 2)
+1. const_R : Sampling constant for core tensor in **Fiber CUR**. (Default value: 2)
+1. const_C : Sampling constant for {C_i} in Fiber CUR. (Default value: 4)
 
-## Output Description for CCS
-1. X_Omega_css : observed data matrix based on CSS sampling model
-2. I_css : row indices of the selected row submatrix
-3. J_css : column indices of the selected column submatrix
+* See paper for the details of constant selection.
 
-## Input Description for ICURC
-1. X_Omega_css : observed data matrix based on CSS sampling model
-2. I_css : row indices of the selected row submatrix
-3. J_css : column indices of the selected column submatrix
-4. r : rank of X.
-5. params_icurc : parameters for the algorithm ICURC
-   * .max_iter : Maximum number of iterations. (default 500)
-   * .TOL : Desired Frobenius norm error. (default 1e-4)
-   * .eta :  eta(1), eta(2), and eta(3) the step sizes for updating C, R, and U. (default [1 1 1])
+## Output Description
+1. Core : Core tensor, i.e., $\mathcal{R}$.
+1. X_sub_mat : Fiber CUR components, i.e., {$C_i U_i^\dagger$}.
 
-## Output Description for ICURC
-1. C，U_pinv，R : CUR decomposition of $X = C U^\dagger R$, where $U^\dagger$ is the pseudo-inverse of $U$.
-2. ICURC_time : runtime for ICURC.
+#### To obtain the full estimated tensor, call 
+```
+X_est = tensor(ttensor(Core,X_sub_mat));
+```
 
+## Demo
+
+Clone the codes and run `test_tensor_CUR.m` for a test demo.
