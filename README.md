@@ -45,4 +45,4 @@ L_est = ttm(L_core,X_sub_mat);
 
 ## Demo
 
-Clone the codes and run `simpleRPCAtest.m` for a test demo.
+Clone the codes as well as <a href=https://gitlab.com/tensors/tensor_toolbox/-/releases/v3.1>Tensor Toolbox v3.1</a> and run `simpleRPCAtest.m` for a test demo.
