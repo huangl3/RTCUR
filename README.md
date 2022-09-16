@@ -16,35 +16,33 @@ This repo is developed with <a href=https://gitlab.com/tensors/tensor_toolbox/-/
 
 
 ## Syntex
+All functions in the algorithm folder follow the same syntax. For example:
+#### RTCUR with fixed Chidori CUR
+```
+[L_core,X_sub_mat,timer,err ] = RTCUR_fc(D, r, para)
+```
 
-#### Chidori CUR
+#### RTCUR with resampling Fiber CUR
 ```
-[Core,X_sub_mat] = Chidori_CUR(X, R, const);
-```
-
-#### Chidori CUR
-```
-[Core, X_sub_mat] = Fiber_CUR(X, R, const_R, const_C);
+[L_core,X_sub_mat,timer,err ] = RTCUR_rf(D, R, para)
 ```
 
 ## Input Description
-1. X : Inputed tensor. 
+1. D : Inputed tensor. 
 1. R : Targeted multilinear rank.
-1. const : Sampling constant in **Chidori CUR**. (Default value: 2)
-1. const_R : Sampling constant for core tensor in **Fiber CUR**. (Default value: 2)
-1. const_C : Sampling constant for {C_i} in Fiber CUR. (Default value: 4)
+1. (optional) para.max_iter, para.epsilon, para.zeta, para.gamma, para.CI: parameters described in our paper. All have defalut values.
 
 * See paper for the details of constant selection.
 
 ## Output Description
-1. Core : Core tensor, i.e., $\mathcal{R}$.
+1. L_core : Core tensor, i.e., $\mathcal{R}$.
 1. X_sub_mat : Fiber CUR components, i.e., {$C_i U_i^\dagger$}.
 
 #### To obtain the full estimated tensor, call 
 ```
-X_est = tensor(ttensor(Core,X_sub_mat));
+L_est = ttm(L_core,X_sub_mat);
 ```
 
 ## Demo
 
-Clone the codes and run `test_tensor_CUR.m` for a test demo.
+Clone the codes and run `simpleRPCAtest.m` for a test demo.
