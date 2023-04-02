@@ -2,7 +2,7 @@
 
 This repository is for our paper:
 
-[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> --> Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>. *Transactions on Pattern Analysis and Machine Intelligence*, 22.185: 1-36, 2022. (TBD when paper is published)
+[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> --> Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>. *Transactions on Pattern Analysis and Machine Intelligence*. (TBD when paper is published)
 
 ###### To display math symbols properly, one may have to install a MathJax plugin. For example, [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
@@ -45,4 +45,4 @@ L_est = ttm(L_core,X_sub_mat);
 
 ## Demo
 
-Clone the codes and run `simpleRPCAtest.m` for a test demo.
+Clone the codes as well as <a href=https://gitlab.com/tensors/tensor_toolbox/-/releases/v3.1>Tensor Toolbox v3.1</a> and run `simpleRPCAtest.m` for a test demo.
