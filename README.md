@@ -2,7 +2,7 @@
 
 This repository is for our paper:
 
-[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> --> Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>.  
+[1] HanQin Cai, Zehan Chao, Longxiu Huang, and Deanna Needell. <!-- <a href=https://jmlr.org/papers/v22/21-0287.html> --> Robust Tensor CUR: Rapid Low-Tucker-Rank Tensor Recovery with Sparse Corruptions</a>.*SIAM Journal on Imaging Sciences*, 2023. 
 
 ###### To display math symbols properly, one may have to install a MathJax plugin. For example, [MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
