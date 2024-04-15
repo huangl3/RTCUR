@@ -1,4 +1,4 @@
-# Mode-wise Tensor Decomposition
+# Robust Tensor CUR
 
 This repository is for our paper:
 
